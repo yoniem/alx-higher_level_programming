@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-# 10-add.py
+# 8-uppercase.py
 
-def add(a, b):
-    """Return the sum of a and b."""
-    return a + b  
 
-num1 = 5
-num2 = 7
-result = add(num1, num2)
-print(f"The sum of {num1} and {num2} is {result}.")
+def uppercase(str):
+    """Print a string in uppercase."""
+    for c in str:
+        if ord(c) >= 97 and ord(c) <= 122:
+            c = chr(ord(c) - 32)
+        print("{}".format(c), end="")
+    print("")
