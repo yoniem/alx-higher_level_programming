@@ -1,26 +1,61 @@
-#include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-/**
- * check_cycle - checks if a linked list contains a cycle
- * @list: linked list to check
- *
- * Return: 1 if the list has a cycle, 0 if it doesn't
- */
-int check_cycle(listint_t *list)
-{
-	listint_t *slow = list;
-	listint_t *fast = list;
+typedef struct listint_s {
+    int n;
+    struct listint_s *next;
+} listint_t;
 
-	if (!list)
-		return (0);
+int check_cycle(listint_t *list) {
+    if (list == NULL) {
+        return 0;  // No cycle in an empty list
+    }
 
-	while (slow && fast && fast->next)
-	{
-		slow = slow->next;
-		fast = fast->next->next;
-		if (slow == fast)
-			return (1);
-	}
+    listint_t *slow = list;
+    listint_t *fast = list;
+	
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
 
-	return (0);
+        if (slow == fast) {
+            return 1;  
+        }
+    }
+
+    return 0;  
+}
+
+int main() {
+    
+    listint_t *node1 = malloc(sizeof(listint_t));
+    listint_t *node2 = malloc(sizeof(listint_t));
+    listint_t *node3 = malloc(sizeof(listint_t));
+    listint_t *node4 = malloc(sizeof(listint_t));
+
+    node1->n = 1;
+    node2->n = 2;
+    node3->n = 3;
+    node4->n = 4;
+
+    node1->next = node2;
+    node2->next = node3;
+    node3->next = node4;
+    node4->next = node2;  
+
+    int hasCycle = check_cycle(node1);
+
+    if (hasCycle) {
+        printf("The linked list has a cycle.\n");
+    } else {
+        printf("The linked list does not have a cycle.\n");
+    }
+
+    
+    free(node1);
+    free(node2);
+    free(node3);
+    free(node4);
+
+    return 0;
 }
