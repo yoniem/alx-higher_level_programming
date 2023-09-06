@@ -9,4 +9,3 @@ class LockedClass:
     """
 
     _slots_ = ["first_name"]
-
