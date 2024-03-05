@@ -5,13 +5,10 @@ import sys
 if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
-
-    url = 'https://api.github.com/user'
-    response = requests.get(url, auth=(yoniem, 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
-))
-
+    
+    response = requests.get('https://api.github.com/user', auth=(yoniem, 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))
+    
     if response.status_code == 200:
-        user_info = response.json()
-        print("Your GitHub user ID is:", user_info['yoniem'])
+        print(response.json()['id'])
     else:
-        print("Failed to fetch user ID. Status code:", response.status_code)
+        print(None)

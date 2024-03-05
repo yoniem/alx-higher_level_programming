@@ -7,16 +7,14 @@ if __name__ == "__main__":
         q = ""
     else:
         q = sys.argv[1]
-
-    url = 'http://0.0.0.0:5000/search_user'
-    data = {'q': q}
-
-    response = requests.post(url, data=data)
-
+    
+    payload = {'q': q}
+    response = requests.post("http://0.0.0.0:5000/search_user", data=payload)
+    
     try:
-        json_data = response.json()
-        if json_data:
-            print("[{}] {}".format(json_data['id'], json_data['name']))
+        json_response = response.json()
+        if json_response:
+            print("[{}] {}".format(json_response['id'], json_response['name']))
         else:
             print("No result")
     except ValueError:
