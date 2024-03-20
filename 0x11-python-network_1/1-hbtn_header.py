@@ -1,9 +1,13 @@
 #!/usr/bin/python3
+"""Fetches https://alx-intranet.hbtn.io/status"""
 import urllib.request
-import sys
+
 
 if __name__ == "__main__":
-    url = sys.argv[1]
-    with urllib.request.urlopen(url) as response:
-        header_value = response.headers.get('X-Request-Id')
-        print(header_value)
+    request = urllib.request.Request("https://alx-intranet.hbtn.io/status")
+    with urllib.request.urlopen(request) as response:
+        body = response.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(body)))
+        print("\t- content: {}".format(body))
+        print("\t- utf8 content: {}".format(body.decode("utf-8")))

@@ -1,12 +1,14 @@
 #!/usr/bin/python3
-import requests
-import sys
+"""
+Sends a POST request to the passed URL with the email as a parameter,
+and finally displays the body of the response."""
 
-if __name__ == "__main__":
-    url = sys.argv[1]
-    email = sys.argv[2]
-    
-    payload = {'email': email}
-    response = requests.post(url, data=payload)
-    
-    print(response.text)
+
+if __name__ == '__main__':
+    from sys import argv
+    from requests import post
+
+    url = argv[1]
+    email = argv[2]
+    res = post(url, {'email': email})
+    print(res.text)
