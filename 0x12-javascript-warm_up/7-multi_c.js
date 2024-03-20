@@ -1,13 +1,8 @@
-#!/usr/bin/node
-const process = require('process');
-let numOfTimes = parseInt(process.argv[2]);
-const message1 = 'Missing number of occurrences';
-const message2 = 'C is fun';
-if (isNaN(numOfTimes)) {
-  console.log(message1);
-} else {
-  while (numOfTimes > 0) {
-    console.log(message2);
-    numOfTimes--;
-  }
-}
+#!/usr/bin/python3
+word = "Holberton"
+word_first_3 = word[0:3]
+word_last_2 = word[-2:]
+middle_word = word[1:-1]
+print(f"First 3 letters: {word_first_3}")
+print(f"Last 2 letters: {word_last_2}")
+print(f"Middle word: {middle_word}")

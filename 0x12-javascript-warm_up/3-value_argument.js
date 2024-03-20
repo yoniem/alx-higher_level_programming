@@ -1,8 +1,6 @@
-#!/usr/bin/node
-const process = require('process');
-const message = 'No argument';
-if (process.argv[2] === undefined) {
-  console.log(message);
-} else {
-  console.log(process.argv[2]);
-}`
+#!/usr/bin/python3
+
+# print number
+
+number = 98
+print(f"{number:d} Battery street")`

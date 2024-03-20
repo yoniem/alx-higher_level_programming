@@ -1,11 +1,5 @@
-#!/usr/bin/node
-const process = require('process');
-const x = parseInt(process.argv[2]);
-const message = 'Missing size';
-if (isNaN(x)) {
-  console.log(message);
-} else {
-  for (let i = 0; i < x; i++) {
-    console.log('X'.repeat(x));
-  }
-}
+#!/usr/bin/python3
+str = "Python is an interpreted, interactive, object-oriented programming\
+ language that combines remarkable power with very clear syntax"
+str = str[39:67] + str[107:112] + str[:6]
+print(str)
